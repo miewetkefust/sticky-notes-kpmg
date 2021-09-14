@@ -8,6 +8,7 @@
                 margin="5px"
             >New</v-btn>
         </v-app>
+        <p v-for="(note, index) in notes" :key="index">{{note.isClosed}}</p>
     </div>
     
 </div>
