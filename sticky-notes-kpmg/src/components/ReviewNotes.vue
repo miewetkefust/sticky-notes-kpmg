@@ -17,11 +17,21 @@
 <script>
 export default {
     name: "ReviewNotes",
+    data: function(){
+        return {
+            notes: []
+        }
+    },
     methods: {
         newNote: function() {
             //Todo
             console.log("CLicked")
         }
+    },
+    async created(){
+            const response = await fetch('http://localhost:3000')
+            const json = await response.json()
+            this.notes = json
     }
 }
 </script>
