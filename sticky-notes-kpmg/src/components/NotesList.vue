@@ -43,10 +43,27 @@
 
             <!--duedate-->
             <v-col>
+                <p
+                class="ma-2">
+                {{dueDateText(note.dueDate)}}
+                </p>
+            </v-col>
+
+            <!--assignees-->
+            <v-col >
+                <v-avatar>
+                    <img v-for="(assignee, index) in note.assignees" :key="index"
+                    :src="assignee.photo"/>
+                </v-avatar>
+            </v-col>
+
+            <!--sectionRef-->
+            <v-col>
                 <v-chip
+                :color="secondary"
                 class="ma-2"
                 label>
-                {{dueDateText(note.dueDate)}}
+                {{sectionRefText(note.sectionRef)}}
                 </v-chip>
             </v-col>
         </v-row>
@@ -60,8 +77,7 @@ export default {
     name: "NotesList",
     data: function(){
         return {
-            notes: [],
-            dueDateColor: ""
+            notes: []
         }
     },
     async created(){
@@ -105,6 +121,21 @@ export default {
                 return "Past due: " + dueDate
             } else {
                 return dueDate
+            }
+        },
+        sectionRefText: function(sectionRef){
+            if(sectionRef === null | sectionRef === ""){
+                return "No section reference"
+            } else {
+                const stringArr = sectionRef.split("-")
+                let newString = ""
+                stringArr.forEach(s => {
+                    if(s === "app")
+                        return
+                    else
+                        newString += s
+                })
+                return newString
             }
         }
     }
