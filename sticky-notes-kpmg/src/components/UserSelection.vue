@@ -1,7 +1,7 @@
 <template>
     <v-container class="m-0" fluid>
         <v-combobox
-          v-model="select"
+            outlined
           :items="items"
           multiple
           chips
@@ -9,10 +9,6 @@
         >
         <template v-slot:selection="data">
             <v-chip
-              :key="JSON.stringify(data.item)"
-              v-bind="data.attrs"
-              :input-value="data.selected"
-              :disabled="data.disabled"
               close
               color="primary"
               @click:close="data.parent.selectItem(data.item)"
