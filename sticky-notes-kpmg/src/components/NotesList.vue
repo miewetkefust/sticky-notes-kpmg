@@ -1,11 +1,12 @@
 <template>
 <div>
     <v-container 
-        v-for="(note, index) in notes" :key="index">
+        v-for="(note, index) in notes.slice(0, this.loadCounter)" :key="index">
 
         <v-row 
+        no-gutters
         class="d-flex align-center"
-        cols="12">
+        >
              <!--checkbox and title-->
              <v-col>
                  <v-checkbox 
@@ -95,6 +96,13 @@
         </v-row>
        
     </v-container>
+
+    <v-btn
+        v-on:click="updateLoadCounter()"
+        v-show="this.showLoad"
+        block>
+        Load more
+    </v-btn>
 </div>
 </template>
 
@@ -103,7 +111,9 @@ export default {
     name: "NotesList",
     data: function(){
         return {
-            notes: []
+            notes: [],
+            loadCounter: 3,
+            showLoad: true
         }
     },
     async created(){
@@ -167,6 +177,16 @@ export default {
         dateToString: function(jsonDate){
             const date = new Date(jsonDate.$date)
             return date.getFullYear() +"-"+ date.getMonth() + "-" + date.getDay()
+        },
+        updateLoadCounter(){
+            if (this.loadCounter < this.notes.length){
+                const increase = Math.min(this.loadCounter+10, this.notes.length)
+                this.loadCounter = increase
+
+                if(this.loadCounter === this.notes.length){
+                    this.showLoad = false
+                }
+            }
         }
     }
 }
