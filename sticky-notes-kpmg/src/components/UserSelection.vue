@@ -5,7 +5,8 @@
           :items="items"
           multiple
           chips
-          class="pt-0"
+          class="p-0"
+          hide-details
         >
         <template v-slot:selection="data">
             <v-chip

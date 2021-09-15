@@ -45,7 +45,30 @@
 
                 <v-col>
                     <p>Date</p>
-                    <input type="date"/>
+                    <v-menu
+                    :close-on-content-click="true"
+                    :nudge-left="40"
+                    transition="scale-transition"
+                    offset-y
+                    outlined
+                    min-width="auto"
+                    >
+                    <template v-slot:activator="{ on, attrs }">
+                    <v-text-field
+                    outlined
+                        v-model="date"
+                        label="Date"
+                        prepend-icon="mdi-calendar"
+                        readonly
+                        v-bind="attrs"
+                        v-on="on"
+                    ></v-text-field>
+                    </template>
+                    <v-date-picker
+                    v-model="date"
+                    ></v-date-picker>
+      </v-menu>
+
                 </v-col>
         </v-row>
         <v-row>
