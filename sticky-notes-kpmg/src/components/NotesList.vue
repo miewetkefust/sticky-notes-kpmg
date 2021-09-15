@@ -1,10 +1,9 @@
 <template>
 <div>
     <v-container 
-        class="d-flex align-center"
         v-for="(note, index) in notes" :key="index">
 
-        <v-row>
+        <v-row class="d-flex align-center">
              <!--checkbox and title-->
              <v-col>
                  <v-checkbox 
@@ -31,6 +30,25 @@
                 {{note.status}}
                 </v-chip>
             </v-col>
+
+            <!--priority-->
+            <v-col>
+                <v-chip
+                :color="priorityColor(note.priority)"
+                class="ma-2"
+                label>
+                {{note.priority.text}}
+                </v-chip>
+            </v-col>
+
+            <!--duedate-->
+            <v-col>
+                <v-chip
+                class="ma-2"
+                label>
+                {{dueDateText(note.dueDate)}}
+                </v-chip>
+            </v-col>
         </v-row>
        
     </v-container>
@@ -42,7 +60,8 @@ export default {
     name: "NotesList",
     data: function(){
         return {
-            notes: []
+            notes: [],
+            dueDateColor: ""
         }
     },
     async created(){
@@ -63,6 +82,29 @@ export default {
                     return "red"
                 default:
                     return ""
+            }
+        },
+        priorityColor: function(priority){
+            switch(priority.sortKey){
+                case 1:
+                    return "red"
+                case 2:
+                    return "orange"
+                case 3:
+                    return "green"
+                default:
+                    return ""
+            }
+        },
+        dueDateText: function(dueDate){
+            if(dueDate === "") return "No due date"
+            
+            const today = new Date()
+            const due = new Date(dueDate)
+            if(today.getDay() > due.getDay()){
+                return "Past due: " + dueDate
+            } else {
+                return dueDate
             }
         }
     }
