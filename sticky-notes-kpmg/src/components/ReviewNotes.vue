@@ -15,12 +15,17 @@
         
     </div>
     <v-divider>inset</v-divider>
-        <p v-for="(note, index) in notes" :key="index"></p>
+    
+    <search-bar></search-bar>
+    <notes-list></notes-list>
 </div>
     
 </template>
 
 <script>
+import SearchBar from './SearchBar.vue'
+import NotesList from './NotesList.vue'
+
 export default {
     name: "ReviewNotes",
     data: function(){
@@ -40,20 +45,18 @@ export default {
                     text: 'Review notes',
                     disbaled: false
                 }
-            ],
-            notes: []
+            ]
         }
+    },
+    components: {
+        SearchBar,
+        NotesList
     },
     methods: {
         newNote: function() {
             //Todo
             console.log("CLicked")
         }
-    },
-    async created(){
-            const response = await fetch('http://localhost:3000')
-            const json = await response.json()
-            this.notes = json
     }
 }
 </script>
@@ -62,6 +65,7 @@ export default {
     #titleBar {
         display: flex;
         flex-direction: row;
+        align-items:center;
     }
 
     h1 {
