@@ -1,8 +1,11 @@
 <template>
     <v-container>
-        <v-row>
+        <v-row 
+        class="d-flex align-center"
+        cols="12">
             <v-text-field
             hide-details
+            class="mt-8"
             placeholder="Quick Search"
             outlined/>
         
@@ -57,7 +60,14 @@
                     <input type="date"/>
                 </v-col>
         </v-row>
-        <a href="http://localhost:8080/#/review-notes">Clear applied filters</a>
+        <v-row>
+            <a 
+            class="d-flex align-self-end"
+            href="http://localhost:8080/#/review-notes">
+            Clear applied filters
+            </a>
+        </v-row>
+        
     </v-container>
 </template>
 

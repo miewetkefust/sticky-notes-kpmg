@@ -3,7 +3,9 @@
     <v-container 
         v-for="(note, index) in notes" :key="index">
 
-        <v-row class="d-flex align-center">
+        <v-row 
+        class="d-flex align-center"
+        cols="12">
              <!--checkbox and title-->
              <v-col>
                  <v-checkbox 
