@@ -1,16 +1,21 @@
 <template>
 <div>
+    <v-breadcrumbs
+            divider=">"
+            :items="breadcrumbs"> 
+        </v-breadcrumbs>
     <div id="titleBar">
         <h1>Review notes</h1>
-        <v-app>
-            <v-btn v-on:click="newNote"
-                color="blue"
-                margin="5px"
-            >New</v-btn>
-        </v-app>
-        <p v-for="(note, index) in notes" :key="index">{{note.isClosed}}</p>
+        <v-btn 
+            v-on:click="newNote"
+            depressed
+            color="primary"
+            class="ml-5"
+        >New</v-btn>
+        
     </div>
-    
+    <v-divider>inset</v-divider>
+        <p v-for="(note, index) in notes" :key="index"></p>
 </div>
     
 </template>
@@ -20,6 +25,22 @@ export default {
     name: "ReviewNotes",
     data: function(){
         return {
+            breadcrumbs: [
+                {
+                    text: 'Engagements',
+                    disabled: false,
+                    href: 'http://localhost:8080/#/review-notes'
+                },
+                {
+                    text: 'Microsoft 2021',
+                    disabled: false,
+                    href: 'http://localhost:8080/#/review-notes'
+                },
+                {
+                    text: 'Review notes',
+                    disbaled: false
+                }
+            ],
             notes: []
         }
     },
@@ -41,5 +62,9 @@ export default {
     #titleBar {
         display: flex;
         flex-direction: row;
+    }
+
+    h1 {
+        margin-left: 20px;
     }
 </style>
