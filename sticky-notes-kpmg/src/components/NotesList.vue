@@ -68,11 +68,27 @@
             <!--sectionRef-->
             <v-col>
                 <v-chip
-                :color="secondary"
+                color="secondary"
                 class="ma-2"
                 label>
                 {{sectionRefText(note.sectionRef)}}
                 </v-chip>
+            </v-col>
+
+            <!--createdAt-->
+            <v-col>
+                <p
+                class="ma-2">
+                {{dateToString(note.createdAt)}}
+                </p>
+            </v-col>
+
+            <!--updatedAt-->
+            <v-col>
+                <p
+                class="ma-2">
+                {{dateToString(note.updatedAt)}}
+                </p>
             </v-col>
         </v-row>
        
@@ -145,6 +161,10 @@ export default {
                 })
                 return newString
             }
+        },
+        dateToString: function(jsonDate){
+            const date = new Date(jsonDate.$date)
+            return date.getFullYear() +"-"+ date.getMonth() + "-" + date.getDay()
         }
     }
 }
