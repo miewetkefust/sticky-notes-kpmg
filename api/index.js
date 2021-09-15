@@ -16,6 +16,10 @@ const fullNotes = reviewNotes.map(note => {
     const ass = note.assignees
     const detailedAss = ass.map(a => users.find(u => u.id === a.$oid))
     note.assignees = detailedAss
+
+    const rep = note.reporterId
+    const detailedRep = users.find(u => u.id === rep.$oid)
+    note.reporterId = detailedRep
     return note
 })
 

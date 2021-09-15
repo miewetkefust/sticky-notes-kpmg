@@ -49,6 +49,14 @@
                 </p>
             </v-col>
 
+            <!--reporter-->
+            <v-col >
+                <v-avatar>
+                    <img 
+                    :src="note.reporterId.photo"/>
+                </v-avatar>
+            </v-col>
+
             <!--assignees-->
             <v-col >
                 <v-avatar>

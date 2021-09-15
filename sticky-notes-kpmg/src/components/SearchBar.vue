@@ -2,6 +2,7 @@
     <v-container>
         <v-row>
             <v-text-field
+            hide-details
             placeholder="Quick Search"
             outlined/>
         
