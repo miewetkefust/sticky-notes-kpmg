@@ -29,7 +29,7 @@
                 </v-col>
                 
                 <v-col>
-                    <p class="m-0">Reporter</p>
+                    <p>Reporter</p>
                     <user-selection/>
                 </v-col>
 
@@ -55,9 +55,9 @@
                     >
                     <template v-slot:activator="{ on, attrs }">
                     <v-text-field
-                    outlined
+                        class="mt-8"
+                        outlined
                         v-model="date"
-                        label="Date"
                         prepend-icon="mdi-calendar"
                         readonly
                         v-bind="attrs"
