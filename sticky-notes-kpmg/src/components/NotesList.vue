@@ -111,15 +111,15 @@ export default {
     name: "NotesList",
     data: function(){
         return {
-            notes: [],
             loadCounter: 3,
             showLoad: true
         }
     },
-    async created(){
-        const response = await fetch('http://localhost:3000')
-        const json = await response.json()
-        this.notes = json
+    props: {
+        notes:{
+            type: Array,
+            required:true
+        }
     },
     methods: {
         statusColor: function(status){
