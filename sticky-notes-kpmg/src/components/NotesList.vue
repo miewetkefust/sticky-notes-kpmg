@@ -1,7 +1,7 @@
 <template>
 <div>
     <v-container 
-        v-for="(note, index) in notes.slice(0, this.loadCounter)" :key="index">
+        v-for="(note, index) in this.notes.slice(0, this.loadCounter)" :key="index">
 
         <v-row 
         no-gutters
