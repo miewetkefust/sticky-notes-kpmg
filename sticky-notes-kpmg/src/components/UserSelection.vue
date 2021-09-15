@@ -1,10 +1,11 @@
 <template>
-    <v-container fluid>
+    <v-container class="m-0" fluid>
         <v-combobox
           v-model="select"
           :items="items"
           multiple
           chips
+          class="pt-0"
         >
         <template v-slot:selection="data">
             <v-chip

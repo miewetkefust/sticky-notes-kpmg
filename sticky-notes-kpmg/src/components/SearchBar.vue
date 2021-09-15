@@ -29,7 +29,7 @@
                 </v-col>
                 
                 <v-col>
-                    <p>Reporter</p>
+                    <p class="m-0">Reporter</p>
                     <user-selection/>
                 </v-col>
 
@@ -40,11 +40,7 @@
 
                 <v-col>
                     <p>Section</p>
-                    <v-chip
-                        color="primary"
-                        close>
-                        Bil Gates
-                    </v-chip>
+                    <user-selection/>
                 </v-col>
 
                 <v-col>
