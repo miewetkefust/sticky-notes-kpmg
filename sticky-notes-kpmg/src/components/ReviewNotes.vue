@@ -91,13 +91,11 @@ export default {
     },
     methods: {
         filterTypes: function(str){
-            console.log(str)
             if(str === "All"){
                 this.filteredNotes = this.notes
             } else {
                 this.filteredNotes = this.notes.filter(n => n.type === str)
             }
-            
         }
     },
     async created(){

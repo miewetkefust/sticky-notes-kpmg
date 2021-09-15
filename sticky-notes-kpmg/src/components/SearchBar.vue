@@ -12,9 +12,9 @@
                 <v-col>
                     <p>Types</p>
                     <v-btn-toggle mandatory>
-                        <v-btn v-on:click="filterWith('All')">All</v-btn>
-                        <v-btn v-on:click="filterWith('Task')">Tasks</v-btn>
-                        <v-btn v-on:click="filterWith('Reviewnote')">Notes</v-btn>
+                        <v-btn v-on:click="filterType('All')">All</v-btn>
+                        <v-btn v-on:click="filterType('Task')">Tasks</v-btn>
+                        <v-btn v-on:click="filterType('Reviewnote')">Notes</v-btn>
                     </v-btn-toggle>
                 </v-col>
                 
@@ -70,7 +70,7 @@ export default {
     components: { UserSelection },
     name: "SearchBar",
     methods: {
-        filterWith(str){
+        filterType(str){
             this.$emit('filterTypes', str)
         }
     }
