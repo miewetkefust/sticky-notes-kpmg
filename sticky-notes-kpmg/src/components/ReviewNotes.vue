@@ -50,8 +50,8 @@
     
     
 
-    <search-bar :notes="this.notes"></search-bar>
-    <notes-list></notes-list>
+    <search-bar ></search-bar>
+    <notes-list :notes="this.notes"></notes-list>
 </div>
     
 </template>
