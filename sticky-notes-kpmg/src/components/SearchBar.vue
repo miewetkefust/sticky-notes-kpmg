@@ -30,11 +30,9 @@
                 
                 <v-col>
                     <p>Reporter</p>
-                    <v-chip
-                        color="primary"
-                        close>
-                        Bil Gates
-                    </v-chip>
+                    <v-container fluid>
+
+                    </v-container>
                 </v-col>
 
                 <v-col>

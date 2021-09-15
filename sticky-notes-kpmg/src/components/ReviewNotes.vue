@@ -50,7 +50,7 @@
     
     
 
-    <search-bar></search-bar>
+    <search-bar :notes="this.notes"></search-bar>
     <notes-list></notes-list>
 </div>
     
@@ -64,6 +64,7 @@ export default {
     name: "ReviewNotes",
     data: function(){
         return {
+            notes: [],
             breadcrumbs: [
                 {
                     text: 'Engagements',
@@ -92,6 +93,11 @@ export default {
             //Todo
             console.log("CLicked")
         }
+    },
+    async created(){
+        const response = await fetch('http://localhost:3000')
+        const json = await response.json()
+        this.notes = json
     }
 }
 </script>
