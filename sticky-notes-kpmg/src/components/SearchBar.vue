@@ -12,9 +12,9 @@
                 <v-col>
                     <p>Types</p>
                     <v-btn-toggle mandatory>
-                        <v-btn>All</v-btn>
-                        <v-btn>Tasks</v-btn>
-                        <v-btn>Notes</v-btn>
+                        <v-btn v-on:click="filterWith('All')">All</v-btn>
+                        <v-btn v-on:click="filterWith('Task')">Tasks</v-btn>
+                        <v-btn v-on:click="filterWith('Reviewnote')">Notes</v-btn>
                     </v-btn-toggle>
                 </v-col>
                 
@@ -30,18 +30,12 @@
                 
                 <v-col>
                     <p>Reporter</p>
-                    <v-container fluid>
-
-                    </v-container>
+                    <user-selection/>
                 </v-col>
 
                 <v-col>
                     <p>Assignees</p>
-                    <v-chip
-                        color="primary"
-                        close>
-                        Bil Gates
-                    </v-chip>
+                    <user-selection/>
                 </v-col>
 
                 <v-col>
@@ -70,7 +64,15 @@
 </template>
 
 <script>
+import UserSelection from './UserSelection.vue'
+
 export default {
-    name: "SearchBar"
+    components: { UserSelection },
+    name: "SearchBar",
+    methods: {
+        filterWith(str){
+            this.$emit('filterTypes', str)
+        }
+    }
 }
 </script>

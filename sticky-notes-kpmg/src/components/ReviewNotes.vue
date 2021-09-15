@@ -50,8 +50,8 @@
     
     
 
-    <search-bar ></search-bar>
-    <notes-list :notes="this.notes"></notes-list>
+    <search-bar @filterTypes="filterTypes"></search-bar>
+    <notes-list :notes="this.filteredNotes"></notes-list>
 </div>
     
 </template>
@@ -65,6 +65,7 @@ export default {
     data: function(){
         return {
             notes: [],
+            filteredNotes: [],
             breadcrumbs: [
                 {
                     text: 'Engagements',
@@ -89,15 +90,21 @@ export default {
         NotesList
     },
     methods: {
-        newNote: function() {
-            //Todo
-            console.log("CLicked")
+        filterTypes: function(str){
+            console.log(str)
+            if(str === "All"){
+                this.filteredNotes = this.notes
+            } else {
+                this.filteredNotes = this.notes.filter(n => n.type === str)
+            }
+            
         }
     },
     async created(){
         const response = await fetch('http://localhost:3000')
         const json = await response.json()
         this.notes = json
+        this.filteredNotes = this.notes
     }
 }
 </script>
