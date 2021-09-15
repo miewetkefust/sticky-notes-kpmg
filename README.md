@@ -3,7 +3,11 @@
 ## To run the server
 
 In terminal:
-cd into the api-folder and run the following command:
+cd into the api-folder and run the following commands:
+
+```
+npm install
+```
 
 ```
 node index.js
@@ -13,6 +17,10 @@ node index.js
 
 In terminal:
 cd into the sticky-notes-kpmg folder and run the following command:
+
+```
+npm install
+```
 
 ```
 npm run serve
